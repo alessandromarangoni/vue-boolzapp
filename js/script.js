@@ -2,6 +2,7 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
+            chatCorrente:0,
             contacts: [
                 {
                     name: 'Michele',
@@ -163,9 +164,16 @@ createApp({
                             status: 'received'
                         }
                     ],
+                    messagioCorrente:'ciao',
                 }
             ]
             
         }
+    },
+    methods:{
+        cambioAlClick(i){
+            this.chatCorrente=i;
+        },
     }
+
 }).mount('#app')

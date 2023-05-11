@@ -8,32 +8,104 @@
     height: 100vh;
     margin: 0 auto;
 }
+body{
+    background-color:#d4dbdb;
+}
 .left{
     min-width: 350px;
     height: 100vh;
-    background: #b81111;
-    overflow-y: scroll;
+    background-color: white;
+    
 }
-.destra{
+.right{
     height: 100vh;
 }
 .left-contact-action{
-    background-color: antiquewhite;
+    background-color: #eaeaea;
+    height: 60px;
+    align-items: center;
 }
 .info_contatto{
     max-width: 100px;
 }
 .contact_img{
     width: 30px;
-    border-radius:50%
+    border-radius:50%;
+    height: 30px;
 }
 .notification-sound-manager{
-    background-color: antiquewhite;
-    border: 1px solid grey;
+    background-color: #8edafc;
 }
 .search-chat{
-    background-color: antiquewhite;
+    background-color: white;
 }
 .contact_section{
-    background-color: aliceblue;
+    background-color: white;
+    max-height: 70%;
+    overflow-y: scroll;
+}
+.prova{
+    height: 30%;
+}
+.bg-whats{
+    background-image: url(/img/mine.jpg);
+    background-size: contain;
+}
+.right-contact-action{
+    height:60px;
+    background-color: #eaeaea;
+    border-left: 1px solid rgba(0, 0, 0, 0.098);
+}
+.margin_debug{
+    margin: 0 -.75rem;
+}
+.contact_img_active{
+    width: 50px;
+    border-radius: 50%;
+}
+
+.text-message{
+    width: 250px;
+    padding: 10px;
+    margin: 5px 10px;
+}
+
+.sent .text-message{
+    background-color: #dcf8c6;
+    border-radius: 15px 0 15px 15px ;
+}
+
+.sent{
+    justify-content: flex-end;
+}
+
+.text-message{
+    background-color: white;
+    border-radius: 15px;
+    border-radius: 0 15px 15px 15px ;
+}
+
+.chat-footer{
+    height: 50px;
+    justify-content: space-around;
+    background-color: #eaeaea;
+    display: flex;
+    flex-direction: row;
+    margin: 0 -.75rem;
+    align-items: center;
+}
+
+
+#write{
+    width: 80%;
+    height: 20px;
+}
+
+/* colori icone */
+.fa-solid , .fa-regular{
+    color: #b1b1b1;
+}
+.fa-bell{
+    color: #8edafc;
+    background-color: white;
 }
