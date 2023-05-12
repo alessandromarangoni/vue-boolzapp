@@ -12,17 +12,17 @@
     <link rel="stylesheet" href="./css/style.css">
 
 </head>
-<body>
+<body class="background">
 
         <div class="container" id="app">
-            <div class="row justify-content-center ">
+            <div class="row justify-content-center app">
                 <div class="col-10 d-flex m-4">
                     <div class="left">
-                        <div class="prova">
+                        <div class="prova d-flex flex-column justify-content-between">
                             <div class="d-flex w-100 justify-content-between left-contact-action">
                                 <div class="info_contatto m-2">
                                     <img src="./img/avatar_io.jpg" alt="" class="contact_img">
-                                    <span class="ms-2">gianna</span>
+                                    <span class="ms-2"><strong>Gianna</strong></span>
                                 </div>
                                 <div class="m-2">
                                     <i class="fa-solid fa-circle-notch mx-2"></i>
@@ -34,15 +34,15 @@
                                 <div class="d-flex">
                                     <div class="m-2"><i class="fa-solid fa-bell rounded-circle p-3"></i></div>
                                     <div>
-                                        <span> Ricevi notifiche di nuovi messaggi </span>
-                                        <p><small class="text-underline">attiva notifiche desktop</small></p>
+                                        <span class="d-inline-block pt-2 ps-2"> Ricevi notifiche di nuovi messaggi </span>
+                                        <p class="ps-2"><small class="text-decoration-underline">attiva notifiche desktop</small></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="search-chat pt-2">
                                 <div class="input-group">
-                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
-                                    <input type="text" class="form-control" placeholder="cerca">
+                                    <span class="input-group-text ms-1" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                    <input type="text" class="form-control me-1" placeholder="cerca">
                                 </div>
                             </div>
                         </div>
@@ -53,11 +53,10 @@
                                     <div class="d-flex flex-column justify-content-center">
                                         <span class="ms-2" > <strong>{{contact.name}}</strong></span>
                                     <!-- non riesco a prendermi l ultimo messaggio x ora -->
-                                    <span class="ms-2"><small>{{contact.messages[0].message}}</small></span>
+                                    <span class="ms-2 text_grey"><small>{{contact.messages[contact.messages.length-1].message}}</small></span>
                                     </div>
                                 </div>
-                                    <span class="m-2 sef-end"><small>{{contact.messages[0].date}}</small></span>
-                                    <!-- <span class="m-2"><small>12</small></span> -->
+                                <span class="m-2 sef-end"><small class="text_grey">{{contact.messages[contact.messages.length-1].date.slice(10,16)}}</small></span>
                             </div>
                             
                         </div>
@@ -65,10 +64,15 @@
                     <div class="container ">
                         <div class="row">
                             <div class="right d-flex flex-column justify-content-between bg-whats" >
-                                <div class="right-contact-action d-flex justify-content-between margin_debug">
-                                    <div>
-                                        <img class="contact_img_active m-2" :src="contacts[chatCorrente].avatar" :alt="contacts[chatCorrente].name">
-                                        <span class="m-2">{{contacts[chatCorrente].name}}</span>
+                                <div class="right-contact-action justify-content-between d-flex margin_debug">
+                                    <div class="d-flex m-2">
+                                        <div>
+                                            <img class="contact_img_active" :src="contacts[chatCorrente].avatar" :alt="contacts[chatCorrente].name">
+                                        </div>
+                                        <div class="">
+                                            <span class="ms-3"><strong>{{contacts[chatCorrente].name}}</strong></span>
+                                            <p class="ms-3 text_strong_grey">ultimo accesso {{contacts[chatCorrente].messages[contacts[chatCorrente].messages.length-1].date.slice(0,16)}}</p>
+                                        </div>
                                     </div>
                                     <div class="m-2 mt-3">
                                         <i class="fa-solid fa-magnifying-glass mx-2"></i>
@@ -80,11 +84,10 @@
                                     <div class="row">
                                         <div class="chat-container">
                                             <div class="box-message d-flex mt-2" v-for="message in contacts[chatCorrente].messages" :class="message.status">
-
-                                                    <div class="text-message">
-                                                        {{message.message}}
+                                                <div class="text-message">
+                                                        <span>{{message.message}}</span>
                                                     <div class="date-message text-secondary text-end font-weight-light">
-                                                        <small>{{message.date}}</small>   
+                                                        <small>{{message.date.slice(0,16)}}</small>   
                                                     </div>
                                                 </div>
                                             </div>
@@ -93,8 +96,8 @@
                                 </div>
                                 <div class="chat-footer">
                                     <i class="fa-regular fa-face-smile ps-4"></i>
-                                    <input type="text" id="write">  
-                                    <i class="fa-solid fa-microphone pe-4"></i>
+                                    <input @keyup.enter="aggiungi(chatCorrente); aggiungiReceived(chatCorrente)" type="text" id="write" v-model="nuova.message">  
+                                    <i class="fa-solid fa-microphone"></i>
                                 </div>
                             </div>
                         </div>

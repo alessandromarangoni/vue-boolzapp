@@ -10,11 +10,6 @@ createApp({
                     visible: true,
                     messages: [
                         {
-                            date: '10/01/2020 15:30:55',
-                            message: 'Hai portato a spasso il cane?',
-                            status: 'sent'
-                        },
-                        {
                             date: '10/01/2020 15:50:00',
                             message: 'Ricordati di stendere i panni',
                             status: 'sent'
@@ -166,14 +161,33 @@ createApp({
                     ],
                     messagioCorrente:'ciao',
                 }
-            ]
-            
+            ],
+            nuova:{
+                date: '14.30',
+                message: '',
+                status: 'sent'
+            },
+            nuova_received:{
+                date: '14.30',
+                message: 'ok',
+                status: 'received'
+            },
         }
     },
     methods:{
         cambioAlClick(i){
             this.chatCorrente=i;
+        }, 
+        aggiungi(chatCorrente){
+            let add = {...this.nuova};
+            this.contacts[chatCorrente].messages.push(add)
+            this.nuova.message=''
         },
+        aggiungiReceived(chatCorrente){
+            let addReceived = {...this.nuova_received};
+            this.contacts[chatCorrente].messages.push(addReceived);
+            this.nuova.message='';
+        }, 
     }
 
 }).mount('#app')

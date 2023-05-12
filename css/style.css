@@ -1,3 +1,18 @@
+.text_grey{color: #cac2bf;}
+.text_strong_grey{color:#a9b3b4}
+.bg_dark{color:#00000075}
+.background{
+    height: 100vh;
+    width: 100%;
+    padding: 24px;
+    background: rgb(0,150,136);
+    background: -moz-linear-gradient(180deg, rgba(0,150,136,1) 12%, rgba(218,219,212,1) 12%);
+    background: -webkit-linear-gradient(180deg, rgba(0,150,136,1) 12%, rgba(218,219,212,1) 12%);
+    background: linear-gradient(180deg, rgba(0,150,136,1) 12%, rgba(218,219,212,1) 12%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#009688",endColorstr="#dadbd4",GradientType=1);
+}
+
+
 *{
     margin: 0;
     padding: 0;
@@ -5,33 +20,33 @@
 }
 #app{
     max-width: 1500px;
-    height: 100vh;
+    height: 90vh;
     margin: 0 auto;
 }
-body{
-    background-color:#d4dbdb;
+.app{
+    height: 90vh;
 }
 .left{
     min-width: 350px;
-    height: 100vh;
+    height: 90vh;
     background-color: white;
     
 }
 .right{
-    height: 100vh;
+    height: 90vh;
 }
 .left-contact-action{
     background-color: #eaeaea;
-    height: 60px;
+    min-height: 80px;
     align-items: center;
 }
 .info_contatto{
-    max-width: 100px;
+    font-size: larger;
 }
 .contact_img{
-    width: 30px;
+    width: 40px;
     border-radius:50%;
-    height: 30px;
+    height: 40px;
 }
 .notification-sound-manager{
     background-color: #8edafc;
@@ -39,10 +54,30 @@ body{
 .search-chat{
     background-color: white;
 }
+#basic-addon1{
+    background-color: white;
+    border-radius: 0;
+    border: 1px solid #b1b1b120;
+}
+.search-chat .form-control{
+    border-radius: 0;
+    border: 1px solid #b1b1b120;
+    background-color: white;
+}
 .contact_section{
     background-color: white;
     max-height: 70%;
     overflow-y: scroll;
+}
+
+@media screen and (max-height: 500px) {
+    .contact_section{
+        /* max-height: 100px; */
+        margin-top: 100px;
+        min-height: 100px;
+        max-height: 120px;
+        overflow-y: scroll;
+    }
 }
 .prova{
     height: 30%;
@@ -52,7 +87,7 @@ body{
     background-size: contain;
 }
 .right-contact-action{
-    height:60px;
+    min-height:60px;
     background-color: #eaeaea;
     border-left: 1px solid rgba(0, 0, 0, 0.098);
 }
@@ -60,12 +95,12 @@ body{
     margin: 0 -.75rem;
 }
 .contact_img_active{
-    width: 50px;
+    width: 45px;
     border-radius: 50%;
 }
 
 .text-message{
-    width: 250px;
+    min-width: 250px;
     padding: 10px;
     margin: 5px 10px;
 }
@@ -84,7 +119,16 @@ body{
     border-radius: 15px;
     border-radius: 0 15px 15px 15px ;
 }
-
+.chat-container{
+    overflow-y: scroll;
+    min-height: 200px;
+    max-height: 500px;
+}
+@media screen and (max-height: 500px) {
+    .chat-container{
+        max-height: 200px;
+    }
+}
 .chat-footer{
     height: 50px;
     justify-content: space-around;
@@ -94,11 +138,15 @@ body{
     margin: 0 -.75rem;
     align-items: center;
 }
-
+.chat-footer i{
+    font-size: x-large;
+}
 
 #write{
     width: 80%;
-    height: 20px;
+    height: 25px;
+    border: none;
+    border-radius: 15px;
 }
 
 /* colori icone */
