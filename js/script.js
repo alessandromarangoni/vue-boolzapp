@@ -172,6 +172,7 @@ createApp({
                 message: 'ok',
                 status: 'received'
             },
+            cerca:'',
         }
     },
     methods:{
@@ -184,10 +185,11 @@ createApp({
             this.nuova.message=''
         },
         aggiungiReceived(chatCorrente){
+            setTimeout(()=>{
             let addReceived = {...this.nuova_received};
             this.contacts[chatCorrente].messages.push(addReceived);
             this.nuova.message='';
+            },1000)
         }, 
-    }
-
+    },
 }).mount('#app')
