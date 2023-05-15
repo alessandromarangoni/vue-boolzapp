@@ -86,9 +86,17 @@
                                 <div class="chat container d-flex flex-column">
                                     <div class="row">
                                         <div class="chat-container">
-                                            <div class="box-message d-flex mt-2" v-for="message in contacts[chatCorrente].messages" :class="message.status">
-                                                <div class="text-message">
-                                                        <span>{{message.message}}</span>
+                                            <div class="box-message d-flex mt-2" v-for="(message, i) in contacts[chatCorrente].messages" :class="message.status" class="p_relative">
+                                                <div class="text-message p_relative"> 
+                                                        <span @click="apriModale(i)">{{message.message}}</span>
+                                                        <div class="pop_up">
+                                                            <div class="card z_index_modifier" v-if="modale == i">
+                                                                <ul class="list-group list-group-flush">
+                                                                    <li class="list-group-item">message info</li>
+                                                                    <li class="list-group-item" @click="cancellaMsg(chatCorrente)">Delete message</li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
                                                     <div class="date-message text-secondary text-end font-weight-light">
                                                         <small>{{message.date.slice(0,16)}}</small>   
                                                     </div>

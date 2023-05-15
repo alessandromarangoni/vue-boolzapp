@@ -173,6 +173,7 @@ createApp({
                 status: 'received'
             },
             cerca:'',
+            modale:null
         }
     },
     methods:{
@@ -191,5 +192,13 @@ createApp({
             this.nuova.message='';
             },1000)
         }, 
+        cancellaMsg(chatCorrente){
+            this.contacts[chatCorrente].messages.splice(this.modale, 1)
+            this.modale = null;
+        },
+        apriModale(i){
+            this.modale = i;
+        }
+
     },
 }).mount('#app')

@@ -1,6 +1,10 @@
 .text_grey{color: #cac2bf;}
 .text_strong_grey{color:#a9b3b4}
 .bg_dark{color:#00000075}
+.p_relative{position: relative;}
+.true{
+    display: none;
+}
 .background{
     height: 100vh;
     width: 100%;
@@ -155,4 +159,13 @@
 .fa-bell{
     color: #8edafc;
     background-color: white;
+}
+.pop_up{
+    position: absolute;
+    top: 50%;
+    height: 60px;
+    width: 150px ;
+}
+.z_index_modifier{
+    z-index: 9999;
 }
